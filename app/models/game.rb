@@ -7,6 +7,4 @@ class Game < ApplicationRecord
   validates :description, presence: true
 
   has_many :listings
-  has_many :users, through: :listings
-  has_many :swaps, through: :listings
 end
