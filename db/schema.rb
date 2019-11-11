@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_11_080128) do
+ActiveRecord::Schema.define(version: 2019_11_11_090535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,29 @@ ActiveRecord::Schema.define(version: 2019_11_11_080128) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "listings", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "game_id"
+    t.string "condition"
+    t.string "status", default: "available"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_listings_on_game_id"
+    t.index ["user_id"], name: "index_listings_on_user_id"
+  end
+
+  create_table "swaps", force: :cascade do |t|
+    t.bigint "listing_offered_id"
+    t.bigint "listing_requested_id"
+    t.string "status"
+    t.boolean "offered_recieved"
+    t.boolean "requested_recieved"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["listing_offered_id"], name: "index_swaps_on_listing_offered_id"
+    t.index ["listing_requested_id"], name: "index_swaps_on_listing_requested_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,4 +63,8 @@ ActiveRecord::Schema.define(version: 2019_11_11_080128) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "listings", "games"
+  add_foreign_key "listings", "users"
+  add_foreign_key "swaps", "listings", column: "listing_offered_id"
+  add_foreign_key "swaps", "listings", column: "listing_requested_id"
 end
