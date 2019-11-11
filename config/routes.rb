@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'pages#index'
+  resources :listings, only: [:new, :create, :destroy] do
+    resources :swaps, only: [:new, :create]
+  end
+  resources :swaps, only: [:update, :index]
+  resources :users, only: [:show]
 end
