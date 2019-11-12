@@ -12,13 +12,13 @@
   <% end %>
   <div class="row">
     <% @games.each do |game| %>
-      <div class="card col-lg-3 col-md-6 col-sm-9 col-xs-12">
-        <div class="card-body">
+    <%=  link_to game_path(game) do %>
+          <div class="card p-3 col-lg-3 col-md-6 col-sm-9 col-xs-12"> 
             <p><%=link_to game.title, game_path(game) %></p>
             <p><%=game.description %></p>
             <p><%=game.console %></p>
-        </div>
-      </div>
+        </div> <br>
+    <% end %>
     <% end %>
   </div>
 </div>
