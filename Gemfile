@@ -17,6 +17,8 @@ gem 'webpacker'
 
 # added gems
 gem 'devise'
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'rest-client'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
