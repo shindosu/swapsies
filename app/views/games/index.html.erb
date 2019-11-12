@@ -1,6 +1,6 @@
 <% @games.each do |game| %>
-<% @games.first(100).each do |game| %>
-  <p><%=game.title %></p>
+  <p><%=link_to game.title, game_path(game) %></p>
   <p><%=game.description %></p>
   <p><%=game.console %></p>
+<% end %>
 <% end %>
