@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   def index
-    @games = Game.all.limit(10)
+    @games = Game.all.limit(50)
   end
 
   def show
