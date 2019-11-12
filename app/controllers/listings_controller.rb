@@ -20,6 +20,6 @@ class ListingsController < ApplicationController
   private
 
   def listing_params
-    params.require('listing').permit(:game, :condition, :status)
+    params.require('listing').permit(:game_id, :condition)
   end
 end
