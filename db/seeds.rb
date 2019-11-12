@@ -13,7 +13,20 @@ genres = {}
 response.each do |genre|
   genres[genre["id"]] = genre["name"]
 end
-p genres
+
+# COVER PHOTO REQUEST
+
+def get_photo_url(id)
+  http = Net::HTTP.new('api-v3.igdb.com',443)
+  http.use_ssl = true
+
+  request = Net::HTTP::Post.new(URI('https://api-v3.igdb.com/covers'), {'user-key' => 'cac670736016aa74847db0ce9d59d19f'})
+
+  request.body = "fields id,url; where id = #{id};"
+  response = JSON.parse(http.request(request).body)
+  return "http:#{response.first['url']}"
+end
+
 
 # GAMES REQUEST
 
@@ -29,18 +42,25 @@ puts "clearing games..."
 Game.destroy_all
 puts "games cleared!"
 
-100.times do |i|
+3.times do |i|
   p "Total number of games: #{Game.count}"
-  request.body = "fields name,platforms,name,genres,name; offset #{50 * i}; limit 50; where platforms = (48,49,130,6); sort id;"
+  request.body = "fields name,platforms,name,genres,cover; offset #{50 * i}; limit 50; where platforms = (48,49,130,6); sort id;"
   response = JSON.parse(http.request(request).body)
   response.each do |game|
     description = game["genres"] ? game["genres"].map { |genre_id| genres[genre_id] }.join(", ") : "No description"
     game['platforms'].select { |id| PLATFORMS.key?(id) }.each do |platform_id|
-      Game.create(
+      new_game = Game.new(
         console: PLATFORMS[platform_id],
         description: description,
-        title: game["name"]
+        title: game["name"],
+        cover_image: get_photo_url(game['cover'])
       )
+      if new_game.save
+        p "Created: #{new_game.title} for #{new_game.console}"
+      else
+        p new_game.errors.full_messages
+        p "Failed: #{new_game.title} for #{new_game.console}"
+      end
     end
   end
 end
