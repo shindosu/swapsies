@@ -17,9 +17,22 @@ class SwapsController < ApplicationController
     end
   end
 
+  def edit
+    @swap = Listing.find(params[:id])
+  end
+
+  def update
+    @swap = Listing.find(params[:id])
+    if @swap.update(swap_params)
+      redirect_to swaps_path
+    else
+      render :edit
+    end
+  end
+
   private
 
   def swap_params
-    params.require('swap').permit(:listing_offered, :listing_requested)
+    params.require('swap').permit(:listing_offered, :listing_requested, :status)
   end
 end
