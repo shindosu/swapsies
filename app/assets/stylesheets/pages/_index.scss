@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Teko&display=swap');
 
 body{
-  background-color: #e6e6e6;
+  background-color: white;
 }
 
 .container{
@@ -11,7 +11,12 @@ body{
     font-family: 'Teko', sans-serif;
   }
 
+  .btn{
+    background-color: #65acc9;
+  }
+
   .row{
-    grid-template-rows: 40px 4em 40px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
   }
 }
