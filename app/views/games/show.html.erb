@@ -3,13 +3,12 @@
 <div class="container">
   <div class="row">
     <h1>Available listings</h1>
-    <% @listings.each do |list| %>
+    <% @game.listings.each do |listing| %>
       <div class="card-product">
         <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
         <div class="card-product-infos">
-          <h2>@game.title</h2>
-          <h2>list.condition</h2>
-          <p>list.status</p>
+          <h2><%= listing.user.username %> </h2>
+          <p><%= listing.condition %> </p>
         </div>
       </div>
     <% end %>
