@@ -1,6 +1,10 @@
 class GamesController < ApplicationController
   def index
-    @games = Game.all.limit(10)
+    if params[:query].present?
+      @games = Game.where("title ILIKE ?", "%#{params[:query]}")
+    else
+      @games = Game.all.limit(50)
+    end
   end
 
   def show
