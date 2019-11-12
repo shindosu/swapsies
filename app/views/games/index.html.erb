@@ -1,4 +1,6 @@
-<% @games.first(100).each do |game| %>
+<div style = "background-image: url(<%= image_tag %>)"></div>
+
+<% @games.each do |game| %>
   <p><%=game.title %></p>
   <p><%=game.description %></p>
   <p><%=game.console %></p>
