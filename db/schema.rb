@@ -38,9 +38,9 @@ ActiveRecord::Schema.define(version: 2019_11_12_052623) do
   create_table "swaps", force: :cascade do |t|
     t.bigint "listing_offered_id"
     t.bigint "listing_requested_id"
-    t.string "status", default: "pending"
-    t.boolean "offered_recieved", default: false
-    t.boolean "requested_recieved", default: false
+    t.string "status"
+    t.boolean "offered_recieved"
+    t.boolean "requested_recieved"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["listing_offered_id"], name: "index_swaps_on_listing_offered_id"
