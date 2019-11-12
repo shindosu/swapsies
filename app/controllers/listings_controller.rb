@@ -8,6 +8,7 @@ class ListingsController < ApplicationController
   end
 
   def create
+    raise
     @listing = Listing.new(listing_params)
     @listing.user = current_user
     if @listing.save
@@ -20,6 +21,6 @@ class ListingsController < ApplicationController
   private
 
   def listing_params
-    params.require('listing').permit(:game, :condition, :status)
+    params.require('listing').permit(:game, :condition)
   end
 end

@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>List a game you wanna swap</h1>
+  <%= simple_form_for [@listing] do |f| %>
+    <%= f.association :game %>
+    <%= f.input :condition, collection: Listing::CONDITIONS %>
+    <%= f.submit "List Game", class: "btn btn-primary"%>
+  <% end %>
+</div>
