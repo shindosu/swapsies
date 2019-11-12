@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   end
   resources :swaps, only: [:update, :index]
   resources :users, only: [:show]
-  resources :games, only: [:show]
+  resources :games, only: [:show, :index]
 end
