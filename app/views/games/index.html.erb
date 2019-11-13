@@ -1,24 +1,22 @@
 <div class="container">
-<h1 class="text-center">Find Games</h1>
+<h1 class="text-center">Find Games!</h1>
   <div class="search-form-control form-group">
-    <%= form_tag games_path, method: :get, class: "search-form" do %>
+    <%= form_tag games_path, method: :get, class: "search-form d-flex" do %>
       <%= text_field_tag :query,
         params[:query],
         class: "form-control",
         placeholder: "Enter the name of a game"
       %>
-      <%= submit_tag "Search", class: "btn btn-warning", id:"search" %>
+      <%= submit_tag "Search", class: "btn", id:"search" %>
   </div>
   <% end %>
   <div class="row">
     <% @games.each do |game| %>
-      <div class="card col-lg-3 col-md-6 col-sm-9 col-xs-12">
-        <div class="card-body">
-            <p><%=link_to game.title, game_path(game) %></p>
-            <p><%=game.description %></p>
-            <p><%=game.console %></p>
+        <div class="card p-4 mb-3 col-lg-3 col-md-6 col-sm-9 col-xs-12"> 
+          <h5><%=link_to game.title, game_path(game) %></h5>
+          <p><%=game.description %></p>
+          <p><%=game.console %></p>
         </div>
-      </div>
     <% end %>
   </div>
 </div>

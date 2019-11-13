@@ -1,4 +1,9 @@
-@import "https://fonts.googleapis.com/css?family=Wallpoet&display=swap";
+@import url('https://fonts.googleapis.com/css?family=Teko|Wallpoet&display=swap');
+
+
+body{
+  color: #F2A900;
+}
 
 .navbar-lewagon {
   justify-content: space-between;
@@ -6,7 +11,8 @@
   background-color: transparent;
   transition: 0.5s background-color ease;
   h1{
-    font-family: 'Wallpoet', cursive;
+    font-family: 'Teko', sans-serif;
+    color: rgb(82, 82, 82);
   }
 }
 

@@ -1,12 +1,17 @@
 // Import page-specific CSS files here.
 @import "home";
+@import url('https://fonts.googleapis.com/css?family=Teko&display=swap');
 
 body{
-  background-color: #FFF4E4;
+  background-color: white;
 }
 
 .container{
   h1{
-    font-family: 'Wallpoet', cursive;
+    font-family: 'Teko', sans-serif;
+  }
+
+  .btn{
+    background-color: #65acc9;
   }
 }
