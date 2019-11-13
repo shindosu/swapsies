@@ -1,9 +1,39 @@
+<div class="d-flex justify-content-center mb-5">
+  <h1> Welcome <%= current_user.username %>!</h1>
+</div>
 <div class="container">
-  <h1> Welcome <%= @user.first_name %>!</h1>
 
-  <h3>Here are your active swaps</h3>
-  <% @swaps.each do |swap| %>
-    <%= swap.status %>
-    <%= swap %>
-  <% end %>
+  <div class="row card-dashboard justify-content-between align-items-start">
+    <div class="dashboard">
+     <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier" %>
+    </div>
+    <div class="outer">
+      <div class="inner"></div>
+    </div>
+     <div class="user-details">
+      <h2 id="underline-title">User details</h2>
+      <p><%=  current_user.first_name %> <%=  current_user.last_name %> </p>
+      <p><%=  current_user.city %> </p>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5 justify-content-center d-flex">
+  <h1>Current swapsies</h1>
+</div>
+
+<div class="cotainer">
+  <div class="row  card-active-swaps">
+    <div class="column">
+      <h3>Here are your active swaps</h3>
+         <% @swaps.each do |swap| %>
+         <%= swap.status %>
+         <%= swap %>
+         <% end %>
+    </div>
+  </div>
+
+  
+  
+
 </div>

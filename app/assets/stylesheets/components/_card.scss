@@ -48,6 +48,67 @@
 }
 
 
+.card-dashboard {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  position: relative;
+  width: 100%;
+  height: 360px;
+  box-sizing: 0;
+
+}
+
+.dashboard img{
+  position:absolute;
+  left: 88px;
+  top: 59px;
+  height: 200px;
+
+}
+
+.user-details {
+  height :100%;
+  width: 50%;
+  padding: 54px;
+  margin: 0;
+}
+
+.outer {
+  left: 236px;
+  width: 1px;
+  height: 100%;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+.inner {
+  position: absolute;
+  width:100%;
+  height: 60%;
+  background: gray;
+  top: 20%;
+  box-shadow: 0px 0px 30px 20px gray;
+  opacity: 0.2;
+}
+
+#underline-title {
+   margin-bottom: 32px;
+}
+
+.card-active-swaps {
+  position: relative;
+  border: 1px solid red;
+  height: 150px;
+  margin-left: 320px;
+  width: 60%;
+}
+
+.card-active-swaps img {
+  position: absolute;
+  height: 100%;
+}
+
+
+
 .card-game {
   h5 {
   color: white;
@@ -73,3 +134,4 @@
 .card-cover-image {
   margin: 0 auto;
 }
+
