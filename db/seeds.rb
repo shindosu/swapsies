@@ -38,6 +38,8 @@ PLATFORMS = {
   130 => 'Switch',
   49 => 'Xbox One'
 }
+Swap.destroy_all
+Listing.destroy_all
 puts "clearing games..."
 Game.destroy_all
 puts "games cleared!"
