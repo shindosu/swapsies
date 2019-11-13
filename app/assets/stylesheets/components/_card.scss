@@ -1,10 +1,19 @@
 .card-product {
+  position: relative;
   overflow: hidden;
   height: 120px;
+  width: 320px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  margin: 12px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.card-product:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
 }
 
 .card-product img {
@@ -29,4 +38,11 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+.listing-card-link {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
 }

@@ -7,12 +7,12 @@
         class: "form-control",
         placeholder: "Enter the name of a game"
       %>
-      <%= submit_tag "Search", class: "btn", id:"search" %>
+      <%= submit_tag "Search", class: "button-blue", id:"search" %>
   </div>
   <% end %>
   <div class="row">
     <% @games.each do |game| %>
-        <div class="card p-4 mb-3 col-lg-3 col-md-6 col-sm-9 col-xs-12"> 
+        <div class="card p-4 mb-3 col-lg-3 col-md-6 col-sm-9 col-xs-12">
           <h5><%=link_to game.title, game_path(game) %></h5>
           <p><%=game.description %></p>
           <p><%=game.console %></p>
