@@ -21,6 +21,11 @@
   width: 40px;
 }
 
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
 .nav-link {
   margin: 5px;
   color: #65ACC9;
