@@ -13,7 +13,7 @@ class SwapsController < ApplicationController
     @listing = Listing.find(params[:listing_id])
     @swap.listing_requested = @listing
     if @swap.save
-      redirect_to swaps_path
+      redirect_to user_path(current_user)
     else
       render :new
     end
