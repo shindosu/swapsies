@@ -26,7 +26,7 @@ class SwapsController < ApplicationController
   def update
     @swap = Listing.find(params[:id])
     if @swap.update(swap_params)
-      redirect_to user_swaps_path(current_user)
+      redirect_to user(current_user)
     else
       render :edit
     end
