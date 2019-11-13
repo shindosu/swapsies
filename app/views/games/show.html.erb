@@ -8,7 +8,7 @@
     <% @game.listings.each do |listing| %>
       <div class="card-product">
         <%= link_to "", new_listing_swap_path(listing) , class: 'listing-card-link' %>
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier" %>
         <div class="card-product-infos">
           <h2><%= listing.user.username %> </h2>
           <p><%= listing.condition %> </p>
