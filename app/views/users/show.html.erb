@@ -2,6 +2,7 @@
   <h1> Welcome <%= current_user.username %>!</h1>
 </div>
 <div class="container">
+
   <div class="row card-dashboard justify-content-between align-items-start">
     <div class="dashboard">
      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier" %>
@@ -24,7 +25,15 @@
 <div class="cotainer">
   <div class="row  card-active-swaps">
     <div class="column">
-      <h1>Swap undergoing</h1>
+      <h3>Here are your active swaps</h3>
+         <% @swaps.each do |swap| %>
+         <%= swap.status %>
+         <%= swap %>
+         <% end %>
     </div>
   </div>
+
+  
+  
+
 </div>
