@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Teko|Wallpoet&display=swap');
 
 
-body{
-  color: #F2A900;
-}
-
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
@@ -13,6 +9,7 @@ body{
   h1{
     font-family: 'Teko', sans-serif;
     color: rgb(82, 82, 82);
+    letter-spacing: 2px;
   }
 }
 
