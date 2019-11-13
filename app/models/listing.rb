@@ -14,4 +14,8 @@ class Listing < ApplicationRecord
 
   has_many :requested_swaps, foreign_key: 'listing_requested', class_name: 'Swap'
   has_many :offered_swaps, foreign_key: 'listing_offered', class_name: 'Swap'
+
+  def to_label
+    game.title
+  end
 end
