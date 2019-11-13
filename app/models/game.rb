@@ -10,5 +10,5 @@ class Game < ApplicationRecord
   }
   validates :description, presence: true
 
-  has_many :listings
+  has_many :listings, dependent: :destroy
 end
