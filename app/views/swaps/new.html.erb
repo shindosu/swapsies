@@ -1,0 +1,6 @@
+<h1>Create swaps</h1>
+  <%= simple_form_for [@swaps] do |f| %>
+    <%= f.association :game %>
+    <%= f.input :condition, collection: Listing::CONDITIONS %>
+    <%= f.submit "List Game", class: "btn btn-primary"%>
+  <% end %>
