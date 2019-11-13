@@ -123,12 +123,15 @@
   }
   color: #F2A900;
   overflow: hidden;
-  background: white;
+  background: #F7F7F7;
   align-items: center;
   margin: 12px;
   box-shadow: 0 4px 8px 0px rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 8px;
+  &:hover {
+    box-shadow: 0 0px 0px 0px rgba(0,0,0,0.2);
+  }
 }
 
 .card-cover-image {

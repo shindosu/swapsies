@@ -13,6 +13,6 @@
   <h3>Make an offer</h3>
   <%= simple_form_for [@listing, @swap] do |f| %>
     <%= f.association :listing_offered, collection: current_user.listings %>
-    <%= f.submit "Make Swap Offer", class: "btn btn-primary"%>
+    <%= f.submit "Make Swap Offer", class: "button-blue"%>
   <% end %>
 </div>

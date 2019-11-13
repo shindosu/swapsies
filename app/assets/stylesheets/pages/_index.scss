@@ -3,15 +3,20 @@
 @import url('https://fonts.googleapis.com/css?family=Teko&display=swap');
 
 body{
-  background-color: white;
+  background-color: #EDE3EA;
 }
 
 .container{
   h1{
     font-family: 'Teko', sans-serif;
+    letter-spacing: 2px;
+    color: rgb(82, 82, 82);
   }
-
+  h2 {
+    color: #F2A900;
+  }
   .btn{
     background-color: #65acc9;
   }
 }
+
