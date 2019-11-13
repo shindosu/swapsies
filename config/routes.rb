@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :swaps, only: [:new, :create]
   end
   resources :swaps, only: [:update, :index, :edit]
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    resources :swaps, only: [:index]
+  end
   resources :games, only: [:show, :index]
 end

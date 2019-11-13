@@ -11,6 +11,7 @@
         <div class="card-product-infos">
           <h2><%= listing.user.username %> </h2>
           <p><%= listing.condition %> </p>
+          <%= link_to "Swap", new_swap_path %>
           <%= link_to "", new_listing_swap_path(listing) , class: 'listing-card-link' %>
         </div>
       </div>
