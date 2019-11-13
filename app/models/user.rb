@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  mount_uploader :photo, PhotoUploader
   has_many :listings
 
   # has_many :offered_swaps, through: :listings, foreign_key: :listing_offered, source: :swaps
