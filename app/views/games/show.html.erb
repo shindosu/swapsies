@@ -7,11 +7,15 @@
   <div class="row justify-content-center mt-2">
     <% @game.listings.each do |listing| %>
       <div class="card-product">
+        <%= link_to "", new_listing_swap_path(listing) , class: 'listing-card-link' %>
         <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
         <div class="card-product-infos">
           <h2><%= listing.user.username %> </h2>
           <p><%= listing.condition %> </p>
+<<<<<<< HEAD
           <%= link_to "", new_listing_swap_path(listing) , class: 'listing-card-link' %>
+=======
+>>>>>>> master
         </div>
       </div>
     <% end %>

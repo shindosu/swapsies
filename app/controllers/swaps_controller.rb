@@ -10,6 +10,8 @@ class SwapsController < ApplicationController
 
   def create
     @swap = Swap.new(swap_params)
+    @listing = Listing.find(params[:listing_id])
+    @swap.listing_requested = @listing
     if @swap.save
       redirect_to swaps_path
     else
@@ -24,7 +26,7 @@ class SwapsController < ApplicationController
   def update
     @swap = Listing.find(params[:id])
     if @swap.update(swap_params)
-      redirect_to swaps_path
+      redirect_to user_swaps_path(current_user)
     else
       render :edit
     end
@@ -33,6 +35,6 @@ class SwapsController < ApplicationController
   private
 
   def swap_params
-    params.require('swap').permit(:listing_offered, :listing_requested, :status)
+    params.require('swap').permit(:listing_offered_id)
   end
 end
