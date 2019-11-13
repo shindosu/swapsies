@@ -110,6 +110,7 @@
 
 
 .card-game {
+  position: relative;
   h5 {
   color: white;
   }
@@ -130,7 +131,7 @@
   transition: 0.3s;
   border-radius: 8px;
   &:hover {
-    box-shadow: 0 0px 0px 0px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0px rgba(0,0,0,0.3);
   }
 }
 
