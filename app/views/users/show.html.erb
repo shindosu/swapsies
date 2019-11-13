@@ -25,11 +25,18 @@
 <div class="cotainer">
   <div class="row  card-active-swaps">
     <div class="column">
-      <h3>Here are your active swaps</h3>
-         <% @swaps.each do |swap| %>
-         <%= swap.status %>
-         <%= swap %>
-         <% end %>
+      <h3>Here are your Swap Requests</h3>
+        <% current_user.listings.each do |listing| %>
+          <% listing.requested_swaps.each do |swap| %>
+            <%= swap.listing_requested.game.title %>
+            <% end %>
+            <% end %>
+      <h3>Here are your Swap Offers</h3>
+        <% current_user.listings.each do |listing| %>
+          <% listing.offered_swaps.each do |swap| %>
+            <%= swap.listing_offered.game.title %>
+            <% end %>
+            <% end %>
     </div>
   </div>
 
