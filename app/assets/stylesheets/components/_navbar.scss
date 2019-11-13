@@ -23,3 +23,13 @@ body{
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.nav-link {
+  margin: 5px;
+  color: #65ACC9;
+}
+
+.nav-link:hover {
+  text-decoration: none;
+  color: #F2A900;
+}

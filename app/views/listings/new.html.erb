@@ -3,6 +3,6 @@
   <%= simple_form_for [@listing] do |f| %>
     <%= f.association :game %>
     <%= f.input :condition, collection: Listing::CONDITIONS %>
-    <%= f.submit "List Game", class: "btn btn-primary"%>
+    <%= f.submit "List Game", class: "button-blue"%>
   <% end %>
 </div>
