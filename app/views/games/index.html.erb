@@ -7,7 +7,7 @@
         class: "form-control",
         placeholder: "Enter the name of a game"
       %>
-      <%= submit_tag "Search", class: "btn", id:"search" %>
+      <%= submit_tag "Search", class: "button-blue", id:"search" %>
   </div>
   <% end %>
   <div class="row justify-content-around">
@@ -19,7 +19,7 @@
           <div class="d-flex pt-3 justify-content-between">
             <h5><%=link_to game.title, game_path(game) %></h5>
             <p><%=game.console %></p>
-          </div>
+          </div> 
           <p><%=game.description %></p>
         </div>
     <% end %>
