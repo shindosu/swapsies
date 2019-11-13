@@ -1,0 +1,12 @@
+<div class="container">
+  <h1><%= current_user.username %>'s Listed Games</h1>
+  <br>
+  <ul>
+    <% current_user.listings.each do |listing| %>
+      <li><%= listing.game.title %> | condition: <%= listing.condition %> <%= link_to "Delete listing", listing_path(listing), class: "nav-link" %></li>
+    <% end %>
+  </ul>
+
+  <%= link_to "My Dashboard", user_path(current_user), class: "button-blue" %>
+
+</div>

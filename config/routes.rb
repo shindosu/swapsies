@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'games#index'
   devise_for :users
     resources :users, only: [:show] do
-    resources :swaps, only: [:index]
+    resources :listings, only: [:index]
   end
   resources :listings, only: [:new, :create, :destroy] do
     resources :swaps, only: [:new, :create]
