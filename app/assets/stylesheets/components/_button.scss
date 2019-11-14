@@ -14,5 +14,13 @@
   border: 1px solid rgb(172, 220, 240);
   color: rgb(172, 220, 240);
   border-radius: 4px;
+}
 
- }
+.btn{
+background-color: #65ACC9;
+  color: rgb(252, 252, 252);
+  &:hover{
+  background-color: rgb(126, 182, 204);
+  color: white;
+  }
+}
