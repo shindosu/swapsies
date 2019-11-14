@@ -1,14 +1,56 @@
-<%= render 'shared/banner' %>
-
 <div class="container">
-  <div class="d-flex justify-content-center">
-    <h1>Available listings</h1>
+<div class="mt-5 d-flex justify-content-left">
+<p><%=link_to games_path , class: "btn button-blue justify-content-center shadow-none" do %>
+<i class="fas fa-arrow-left"></i> Go Back
+<% end %>
+</p>
+</div>
+  <div class="row">
+    <div class="game-information col-lg-5 position-sticky">
+      <h3 class="show-game-title pb-3"> <%= @game.title %> </h3>
+            <% if @game.rating.between?(90,100) %>
+              <% 5.times do %>
+                <i class="fas fa-star star-yellow"></i>
+              <% end %>
+            <% elsif @game.rating.between?(72,89)%>
+              <% 4.times do %>
+                <i class="fas fa-star star-yellow"></i>
+              <% end %>
+              <i class="fas fa-star star-black"></i>
+            <% elsif @game.rating.between?(60,71)%>
+              <% 3.times do %>
+                <i class="fas fa-star star-yellow"></i>
+              <% end %>
+              <% 2.times do %>
+                <i class="fas fa-star star-black"></i>
+              <% end %>
+            <% elsif @game.rating.between?(51,60)%>
+              <% 2.times do %>
+                <i class="fas fa-star star-yellow"></i>
+              <% end %>
+              <% 3.times do %>
+                <i class="fas fa-star star-black"></i>
+              <% end %>
+            <% elsif @game.rating.between?(0,50)%>
+              <% 1.times do %>
+                <i class="fas fa-star star-yellow"></i>
+              <% end %>
+              <% 4.times do %>
+                <i class="fas fa-star star-black"></i>
+              <% end %>
+            <% end %> <br>
+      <%= image_tag @game.cover_image, alt: "alttext", class:"avatar-title-image mt-3 mb-3"%>
+      <p class="console-type"><%= @game.console %> ・ <%= @game.release_date %></p>
+      <p><%= @game.description %></p>
     </div>
-  <div class="row justify-content-center mt-2">
+
+      <div class="justify-content-center col-lg-7">
+    <h3 class="show-game-title pb-3">Available listings</h3>
+
+    <div class="d-flex">
     <% @game.listings.each do |listing| %>
-      <div class="card-product">
+      <div class="card-product col-5">
         <%# <%= link_to "", new_listing_swap_path(listing) , class: 'listing-card-link' %>
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier" %>
         <% if listing.user.photo.filename %>
           <%= cl_image_tag listing.user.photo.url(:user_photo_main) %>
         <% else %>
@@ -16,8 +58,8 @@
         <% end %>
         <div class="card-product-infos">
           <h2><%= name = listing.user.username %> </h2>
-          <p><%= listing.condition %> </p>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-<%= listing.id %>">
+          <p class="mb-2">Condition: <%= listing.condition %> </p>
+          <button type="button" class="btn btn-primary btn-swap shadow-none" data-toggle="modal" data-target="#modal-<%= listing.id %>">
             Swap
           </button>
                       <!-- Modal -->
@@ -55,9 +97,8 @@
         </div>
       </div>
     <% end %>
-  </div>
-</div>
-<div class="mt-5 d-flex justify-content-center">
-<p><%=link_to "Go back", games_path , class: "button-blue justify-content-center" %></p>
+    </div>
+    
+    </div>
 </div>
 

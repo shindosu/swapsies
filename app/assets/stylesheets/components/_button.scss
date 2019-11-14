@@ -2,26 +2,33 @@
   width: 100px;
   height: 37px;
   border: 2px solid #65ACC9;
-  color: #65ACC9;
+  color: white;
   font-weight: bolder;
   padding: 6px;
-  transition: 0.7s;
-  background-color: transparent;
+  transition-duration: 0.5s;
+  background-color: #65ACC9;
+  &:hover {
+    text-decoration: none;
+    background-color: #FFC057;
+    border: 1px solid #FFC057;
+    color: white;
+  }
+  &:active{
+    border-color: transparent;
+  }
 }
 
-.button-blue:hover {
-  text-decoration: none;
-  background-color: transparent;
-  border: 1px solid rgb(172, 220, 240);
-  color: rgb(172, 220, 240);
-  border-radius: 4px;
+.btn-swap{
+  padding: 1px 10px;
 }
 
 .btn{
 background-color: #65ACC9;
   color: rgb(252, 252, 252);
+  transition-duration: 0.2s;
   &:hover{
-  background-color: rgb(126, 182, 204);
+  background-color: #FFC057;
+  border-color: #FFC057;
   color: white;
   }
   background-color: #65ACC9;

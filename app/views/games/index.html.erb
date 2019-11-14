@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="text-center">Find Games!</h1>
+  <h1 class="text-center find-games">Find Games!</h1>
 
   <!--Search-->
   <div class="search-form-control form-group">
@@ -9,7 +9,7 @@
         class: "form-control",
         placeholder: "Enter the name of a game"
       %>
-      <%= submit_tag "Search", class: "btn btn-outline btn-blue", id:"search" %>
+      <%= submit_tag "Search", class: "btn btn-outline btn-blue shadow-none", id:"search" %>
     <% end %>
   </div>
 
@@ -20,21 +20,35 @@
           <%= image_tag game.cover_image, alt: "alttext", class:"card-cover-image"%>
           <div class="card-product-infos">
             <h5 class="game-title"><%= game.title %></h5>
-            <% if game.rating.between?(80,100) %>
+             <% if game.rating.between?(90,100) %>
               <% 5.times do %>
                 <i class="fas fa-star star-yellow"></i>
               <% end %>
-            <% elsif game.rating.between?(60,80)%>
+            <% elsif game.rating.between?(72,89)%>
               <% 4.times do %>
                 <i class="fas fa-star star-yellow"></i>
               <% end %>
-              <i class="fas fa-star"></i>
-            <% elsif game.rating.between?(40,60)%>
+              <i class="fas fa-star star-black"></i>
+            <% elsif game.rating.between?(60,71)%>
               <% 3.times do %>
                 <i class="fas fa-star star-yellow"></i>
               <% end %>
               <% 2.times do %>
-                <i class="fas fa-star"></i>
+                <i class="fas fa-star star-black"></i>
+              <% end %>
+            <% elsif game.rating.between?(51,60)%>
+              <% 2.times do %>
+                <i class="fas fa-star star-yellow"></i>
+              <% end %>
+              <% 3.times do %>
+                <i class="fas fa-star star-black"></i>
+              <% end %>
+            <% elsif game.rating.between?(0,50)%>
+              <% 1.times do %>
+                <i class="fas fa-star star-yellow"></i>
+              <% end %>
+              <% 4.times do %>
+                <i class="fas fa-star star-black"></i>
               <% end %>
             <% end %>
           <!--rating algo ends-->
