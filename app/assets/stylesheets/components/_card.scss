@@ -54,8 +54,16 @@
   width: 100%;
   height: 360px;
   box-sizing: 0;
-  background-color: #F7F7F7;
+  background-color: #fff;
   border-radius: 8px;
+}
+
+.dashboard img{
+  position:absolute;
+  left: 88px;
+  top: 59px;
+  height: 200px;
+
 }
 
 .user-details {
@@ -84,7 +92,7 @@
 }
 
 #underline-title {
-   margin-bottom: 32px;
+  margin-bottom: 32px;
 }
 
 .card-active-swaps {
@@ -100,45 +108,13 @@
   height: 100%;
 }
 
-
-
-.card-game {
-  position: relative;
-  h5 {
-  color: white;
-  }
-  a {
-    text-decoration: none;
-    color: #65ACC9;
-  }
-  .card-game-image {
-  display: cover;
-  margin: 0 auto;
-  }
-  color: #F2A900;
-  overflow: hidden;
-  background: #F7F7F7;
-  align-items: center;
-  margin: 12px;
-  box-shadow: 0 4px 8px 0px rgba(0,0,0,0.2);
-  transition: 0.3s;
-  border-radius: 8px;
-  &:hover {
-    box-shadow: 0 8px 16px 0px rgba(0,0,0,0.3);
-  }
-}
-
-.card-cover-image {
-  margin: 0 auto;
-}
-
 .swap-card {
   box-shadow: 0 1px 9px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
 }
 
 .card{
-  background-color: #f7f7f7;
+  background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 1px 9px rgba(0, 0, 0, 0.1);
 }
@@ -146,4 +122,47 @@
 .request-card{
   list-style: none;
   padding: 0;
+}
+
+
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  padding: 0;  
+}
+
+.card-cover-image{
+  margin: 0;
+}
+
+.console-type{
+  color: #F2A900;
+}
+
+.card-product img {
+  height: 100%;
+  width: 90px;
+  object-fit: cover;
+}
+
+.card-product h5 {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
 }
