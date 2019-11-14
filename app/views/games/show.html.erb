@@ -7,21 +7,56 @@
   <div class="row justify-content-center mt-2">
     <% @game.listings.each do |listing| %>
       <div class="card-product">
+        <%# <%= link_to "", new_listing_swap_path(listing) , class: 'listing-card-link' %>
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier" %>
         <% if listing.user.photo.filename %>
           <%= cl_image_tag listing.user.photo.url(:user_photo_main) %>
         <% else %>
           <%= image_tag "https://res.cloudinary.com/dedqosv7x/image/upload/w_160,ar_1:1,c_fill,g_auto,/v1573196467/drnvl6hpigqsuxy8iqhn.jpg" %>
         <% end %>
         <div class="card-product-infos">
-          <h2><%= listing.user.username %> </h2>
+          <h2><%= name = listing.user.username %> </h2>
           <p><%= listing.condition %> </p>
-          <%= link_to "", new_listing_swap_path(listing) , class: 'listing-card-link' %>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-<%= listing.id %>">
+            Swap
+          </button>
+                      <!-- Modal -->
+            <div class="modal fade" id="modal-<%= listing.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Swap for <%= @game.title %>?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="card-product">
+                      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier" %>
+                      <div class="card-product-infos">
+                        <h2><%= name = listing.user.username %> </h2>
+                        <p><%= listing.condition %> </p>
+                      </div>
+                    </div>
+
+                    <i class="fas fa-exchange-alt fa-rotate-90 fa-5x" id="exchange-arrow" ></i>
+
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--end of Modal div-->
+
         </div>
       </div>
     <% end %>
   </div>
 </div>
-
 <div class="mt-5 d-flex justify-content-center">
 <p><%=link_to "Go back", games_path , class: "button-blue justify-content-center" %></p>
 </div>

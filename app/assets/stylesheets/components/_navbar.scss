@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Teko|Wallpoet&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Heebo&display=swap');
 
 .navbar-lewagon {
   justify-content: space-between;
@@ -29,6 +29,8 @@
 .nav-link {
   margin: 5px;
   color: #65ACC9;
+  font-family: 'Heebo', sans-serif;
+  transition-duration: 0.2s;
 }
 
 .nav-link:hover {
