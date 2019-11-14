@@ -21,6 +21,8 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'rest-client'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
+gem "algoliasearch-rails"
+gem 'pg_search'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
