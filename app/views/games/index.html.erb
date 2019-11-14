@@ -39,6 +39,25 @@
 <!--rating algo ends-->
           <p class="console-type"><%=game.console %> ・ <%= game.release_date %></p>
           <p class="game-description"><%=game.description.split(",").first(2).join(", ") %></p>
+  <div>
+  <%= simple_form_for :search, url: games_path, method: :get, class: "form-inline" do |f| %>
+    <%= f.input :query, required: false, input_html: {value: ""}%>
+    <%= f.submit "Search", class: "button-blue"%>
+    <% end %>
+  </div>
+  <div class="row justify-content-around">
+    <% @games.each do |game| %>
+        <div class="card-game col-lg-3 col-md-6 col-sm-9 col-xs-12">
+          <%= link_to "", game_path(game), class:"listing-card-link" %>
+          <div class="justify-content-center">
+          <% cover_image_url = game.cover_image != 'http:' ? game.cover_image : "controller.png" %>
+          <%= image_tag cover_image_url, alt: "alttext", class:"card-cover-image pt-3"%>
+          </div>
+          <div class="d-flex pt-3 justify-content-between">
+            <h5><%= game.title %></h5>
+            <p><%=game.console %></p>
+          </div>
+          <p><%=game.description %></p>
         </div>
       </div> 
     <% end %>
