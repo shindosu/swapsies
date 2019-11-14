@@ -24,7 +24,11 @@ def get_photo_url(id)
 
   request.body = "fields id,url; where id = #{id};"
   response = JSON.parse(http.request(request).body)
-  return "http:#{response.first['url']}"
+  if response.first['url'].nil?
+    return nil
+  else
+    return "http:#{response.first['url']}"
+  end
 end
 
 
