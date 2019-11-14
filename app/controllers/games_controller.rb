@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :home]
 
   def home
   end
@@ -15,7 +15,6 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
   end
-
 
   # def new
   #   @listing = Listing.all
@@ -33,8 +32,8 @@ class GamesController < ApplicationController
   #   end
   # end
 
-  private 
-  
+  private
+
   def listing_params
     params.require('listing').permit(:game_id, :condition)
   end
