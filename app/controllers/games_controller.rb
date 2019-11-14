@@ -5,8 +5,8 @@ class GamesController < ApplicationController
   end
 
   def index
-    if params[:search] && !params[:search][:query].empty?
-      @games = Game.search_by_title_description_console_and_rating(params[:search][:query])
+    if params[:query].present?
+      @games = Game.search_by_title_description_console_and_rating(params[:query])
     else
       @games = Game.all.limit(50)
     end
