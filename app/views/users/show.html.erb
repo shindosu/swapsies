@@ -1,7 +1,6 @@
 <div class="container">
   <div class="user-pane d-flex col-12 justify-content-between">
     <div class="row card-dashboard">
-      <div class="dashboard">
         <% if current_user.photo.filename %>
           <%= cl_image_tag current_user.photo.url(:user_photo_main), class:"dashboard-image"%>
         <% else %>
@@ -13,7 +12,6 @@
           <p><%=  current_user.first_name %> <%=  current_user.last_name %> </p>
           <p><%=  current_user.city.capitalize! %> </p>
         </div>
-      </div>
     </div>
     <div class="col-9 card-swaps">
       <div>
