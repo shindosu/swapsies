@@ -2,7 +2,11 @@
 
   <div class="row card-dashboard justify-content-between align-items-start">
     <div class="dashboard">
-     <%= cl_image_tag current_user.photo.url(:user_photo_main) %>
+      <% if current_user.photo.filename %>
+        <%= cl_image_tag current_user.photo.url(:user_photo_main) %>
+      <% else %>
+        <%= image_tag "https://res.cloudinary.com/dedqosv7x/image/upload/w_160,ar_1:1,c_fill,g_auto,r_20/v1573196467/drnvl6hpigqsuxy8iqhn.jpg" %>
+      <% end %>
     </div>
     <div class="outer">
       <div class="inner"></div>

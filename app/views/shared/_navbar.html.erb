@@ -20,7 +20,11 @@
           <%= link_to "Dashboard", user_path(current_user), class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
-          <%= cl_image_tag current_user.photo.url(:dashboard_avatar), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if current_user.photo.filename %>
+            <%= cl_image_tag current_user.photo.url(:dashboard_avatar), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag "https://res.cloudinary.com/dedqosv7x/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,b_rgb:262c35/v1573196467/drnvl6hpigqsuxy8iqhn.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Dashboard", user_path(current_user), class: "dropdown-item nav-link" %>
             <%= link_to "My Listed Games", user_listings_path(current_user), class: "dropdown-item nav-link"  %>
