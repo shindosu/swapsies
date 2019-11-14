@@ -46,7 +46,7 @@ puts "games cleared!"
 
 3.times do |i|
   p "Total number of games: #{Game.count}"
-  request.body = "fields name,platforms,name,genres,cover; offset #{50 * i}; limit 50; where platforms = (48,49,130,6); sort id;"
+  request.body = "fields name,platforms,aggregated_rating,genres,first_release_date,cover; offset #{50 * i}; limit 50; where aggregated_rating > 80 & platforms = (48,49,130,6); sort date desc;"
   response = JSON.parse(http.request(request).body)
   response.each do |game|
     description = game["genres"] ? game["genres"].map { |genre_id| genres[genre_id] }.join(", ") : "No description"
@@ -55,10 +55,13 @@ puts "games cleared!"
         console: PLATFORMS[platform_id],
         description: description,
         title: game["name"],
+        rating: game["aggregated_rating"],
+        release_date: Date.strptime(game["first_release_date"].to_s,'%s'),
         cover_image: get_photo_url(game['cover'])
       )
       if new_game.save
-        p "Created: #{new_game.title} for #{new_game.console}"
+        p "Created: #{new_game.title} for #{new_game.console} released on #{new_game.release_date.strftime("%b %d, %Y")}"
+        p new_game.rating
       else
         p new_game.errors.full_messages
         p "Failed: #{new_game.title} for #{new_game.console}"
