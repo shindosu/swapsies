@@ -7,8 +7,11 @@
   <div class="row justify-content-center mt-2">
     <% @game.listings.each do |listing| %>
       <div class="card-product">
-        <%= link_to "", new_listing_swap_path(listing) , class: 'listing-card-link' %>
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier" %>
+        <% if listing.user.photo.filename %>
+          <%= cl_image_tag listing.user.photo.url(:user_photo_main) %>
+        <% else %>
+          <%= image_tag "https://res.cloudinary.com/dedqosv7x/image/upload/w_160,ar_1:1,c_fill,g_auto,/v1573196467/drnvl6hpigqsuxy8iqhn.jpg" %>
+        <% end %>
         <div class="card-product-infos">
           <h2><%= listing.user.username %> </h2>
           <p><%= listing.condition %> </p>
