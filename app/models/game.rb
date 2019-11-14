@@ -9,6 +9,7 @@ class Game < ApplicationRecord
     message: "Not a valid console"
   }
   validates :description, presence: true
+  validates :rating, presence: true
 
   has_many :listings, dependent: :destroy
 end
