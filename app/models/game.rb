@@ -1,4 +1,5 @@
 class Game < ApplicationRecord
+  include PgSearch::Model
   CONSOLES = ['Switch', 'PS4', 'Xbox One', 'PC']
   validates :title, presence: true
   validates :console, uniqueness: {
@@ -11,4 +12,10 @@ class Game < ApplicationRecord
   validates :description, presence: true
 
   has_many :listings, dependent: :destroy
+
+  pg_search_scope :search_by_title_description_console_and_rating,
+    against: [:title, :description, :console, :rating],
+    using: {
+      tsearch: { prefix: true }
+    }
 end
