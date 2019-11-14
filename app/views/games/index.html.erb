@@ -1,5 +1,6 @@
 <div class="container">
 <h1 class="text-center">Find Games!</h1>
+
 <!--Search-->
   <div class="search-form-control form-group">
     <%= form_tag games_path, method: :get, class: "search-form d-flex" do %>
@@ -39,6 +40,7 @@
 <!--rating algo ends-->
           <p class="console-type"><%=game.console %> ・ <%= game.release_date %></p>
           <p class="game-description"><%=game.description.split(",").first(2).join(", ") %></p>
+
   <div>
   <%= simple_form_for :search, url: games_path, method: :get, class: "form-inline" do |f| %>
     <%= f.input :query, required: false, input_html: {value: ""}%>
