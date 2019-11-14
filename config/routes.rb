@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'games#index'
+  root to: 'games#home'
   devise_for :users
     resources :users, only: [:show] do
     resources :listings, only: [:index]
