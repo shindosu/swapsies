@@ -1,114 +1,61 @@
+<%# <div class="index-banner" style="background-image: url('https://i.pinimg.com/originals/f5/e9/3c/f5e93cb7fe0df0aad558bf7442631186.jpg')"></div> %>
+
 <div class="container">
-<div class="mt-5 d-flex justify-content-left">
-<p><%=link_to games_path , class: "btn button-blue justify-content-center shadow-none" do %>
-<i class="fas fa-arrow-left"></i> Go Back
-<% end %>
-</p>
-</div>
-  <div class="row">
-    <div class="game-information col-lg-5 position-sticky">
-      <h3 class="show-game-title pb-3"> <%= @game.title %> </h3>
-            <% if @game.rating.between?(90,100) %>
+  <!--Search-->
+  <div class="search-form-control form-group">
+    <%= form_tag games_path, method: :get, class: "search-form d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Enter the name of a game"
+      %>
+      <%= submit_tag "Search", class: "btn btn-outline btn-blue shadow-none", id:"search" %>
+    <% end %>
+  </div>
+
+  <div class="row justify-content-center">
+      <% @games.each do |game| %>
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-5 card p-0 m-2">
+          <%= link_to "", game_path(game), class:"listing-card-link" %>
+          <%= image_tag game.cover_image, alt: "alttext", class:"card-cover-image w-100"%>
+          <div class="card-index-infos ml-2">
+            <h5 class="game-title pt-2"><%= game.title %></h5>
+              <% if game.rating.between?(90,100) %>
               <% 5.times do %>
                 <i class="fas fa-star star-yellow"></i>
               <% end %>
-            <% elsif @game.rating.between?(72,89)%>
+            <% elsif game.rating.between?(72,89)%>
               <% 4.times do %>
                 <i class="fas fa-star star-yellow"></i>
               <% end %>
               <i class="fas fa-star star-black"></i>
-            <% elsif @game.rating.between?(60,71)%>
+            <% elsif game.rating.between?(60,71)%>
               <% 3.times do %>
                 <i class="fas fa-star star-yellow"></i>
               <% end %>
               <% 2.times do %>
                 <i class="fas fa-star star-black"></i>
               <% end %>
-            <% elsif @game.rating.between?(51,60)%>
+            <% elsif game.rating.between?(51,60)%>
               <% 2.times do %>
                 <i class="fas fa-star star-yellow"></i>
               <% end %>
               <% 3.times do %>
                 <i class="fas fa-star star-black"></i>
               <% end %>
-            <% elsif @game.rating.between?(0,50)%>
+            <% elsif game.rating.between?(0,50)%>
               <% 1.times do %>
                 <i class="fas fa-star star-yellow"></i>
               <% end %>
               <% 4.times do %>
                 <i class="fas fa-star star-black"></i>
               <% end %>
-            <% end %> <br>
-      <%= image_tag @game.cover_image, alt: "alttext", class:"avatar-title-image mt-3 mb-3"%>
-      <p class="console-type"><%= @game.console %> ・ <%= @game.release_date.strftime("%b %d, %Y") %></p>
-      <p><%= @game.description %></p>
-    </div>
-
-      <div class="justify-content-center col-lg-7">
-    <h3 class="show-game-title pb-3">Available listings</h3>
-
-    <div class="d-flex">
-    <% @game.listings.each do |listing| %>
-      <% if listing.user.username == current_user.username %>
-        <%= "" %>
-        <% else %>
-        <div class="card-product col-6">
-          <% if listing.user.photo.filename %>
-            <%= cl_image_tag listing.user.photo.url(:user_photo_main) %>
-          <% else %>
-            <%= image_tag "https://res.cloudinary.com/dedqosv7x/image/upload/w_160,ar_1:1,c_fill,g_auto,/v1573196467/drnvl6hpigqsuxy8iqhn.jpg" %>
-          <% end %>
-          <div class="card-product-infos">
-            <h2><%= name = listing.user.username %> </h2>
-            <p class="mb-2">Condition: <%= listing.condition %> </p>
-            <%= link_to "", new_listing_swap_path(listing) , class: 'listing-card-link' %>
-            <button type="button" class="btn btn-primary btn-swap shadow-none" data-toggle="modal" data-target="#modal-<%= listing.id %>">
-              Swap!
-            </button>
+            <% end %>
+          <!--rating algo ends-->
+            <p class="console-type"><%=game.console %> ・ <%= game.release_date %></p>
+            <p class="game-description"><%=game.description.split(",").first(2).join(", ") %></p>
           </div>
-      <% end %>
-    </div>
-    <% end %>
-
-    </div>
-      <div class="card-product">
-        <%= link_to "", new_listing_path , class: 'listing-card-link' %>
-        <div class="card-product-infos text-center" id="add-new-content">
-          <i class="fas fa-plus fa-lg" id="add-plus"></i>
-          <h2 class="text-center" id="list-now"> HAVE GAME? LIST NOW </h2>
         </div>
-    </div>
+      <% end %>
+  </div>
 </div>
-
-
-                     <!-- Modal
-            <div class="modal fade" id="modal-<%#= listing.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Swap for <#%= @game.title %>?</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="card-product">
-                      <%#= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier" %>
-                      <div class="card-product-infos">
-                        <h2><%#= name = listing.user.username %> </h2>
-                        <p><%#= listing.condition %> </p>
-                      </div>
-                    </div>
-
-                    <i class="fas fa-exchange-alt fa-rotate-90 fa-5x" id="exchange-arrow" ></i>
-
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            end of Modal div-->
-
