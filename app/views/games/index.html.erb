@@ -52,7 +52,7 @@
               <% end %>
             <% end %>
           <!--rating algo ends-->
-            <p class="console-type"><%=game.console %> ・ <%= game.release_date %></p>
+            <p class="console-type"><%=game.console %> ・ <%= game.release_date.strftime("%b %d, %Y") %></p>
             <p class="game-description"><%=game.description.split(",").first(2).join(", ") %></p>
           </div>
         </div>
