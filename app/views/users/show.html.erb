@@ -9,8 +9,9 @@
       <div class="user-details">
         <h2><%= current_user.username %></h2>
         <hr>
-        <p><%=  current_user.first_name %> <%=  current_user.last_name %> </p>
+        <h5><%=  current_user.first_name %> <%=  current_user.last_name %> </h5>
         <p><%=  current_user.city.capitalize! %> </p>
+        <p>- <%=  current_user.email%></p>
       </div>
     </div>
     <div class="col-9 card-swaps">
@@ -31,7 +32,7 @@
           </ul>
 
           <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="requests" role="tabpanel" aria-labelledby="requests-tab">
+            <div class="tab-pane fade show active" id="offers" role="tabpanel" aria-labelledby="requests-tab">
               <ul class="request-card">
                 <% current_user.listings.each do |listing| %>
                 <% listing.offered_swaps.each do |swap| %>
@@ -56,7 +57,7 @@
                           </p>
                         </div>
                       </div class="text-center">
-                      <div><i class="swap-icon-offers fa-3x ml-3 mt-4 fas fa-exchange-alt"></i></div>
+                      <div><i class="swap-icon-offers fa-10x mt-6 text-left fas fa-exchange-alt"></i></div>
                       <div class="their-swap">
                         <div class="text-center mb-2">
                           <%= image_tag swap.listing_requested.game.cover_image, alt: "alttext", class:"card-cover-image mt-1"%>
@@ -85,7 +86,7 @@
                   </ul>
                 </div>
 
-                <div class="tab-pane fade show" id="offers" role="tabpanel" aria-labelledby="offers-tab">
+                <div class="tab-pane fade show" id="requests" role="tabpanel" aria-labelledby="offers-tab">
                   <div class="column justify-content-between", style="flex: 1;">
                     <ul class="request-card">
                       <% current_user.listings.each do |listing| %>
@@ -114,7 +115,7 @@
                               </p>
                             </div>
                           </div class="text-center">
-                          <div><i class="swap-icon-requests fa-3x ml-2 mr-3 mt-4 fas fa-exchange-alt"></i></div>
+                          <div><i class="swap-icon-requests fa-10x mt-6 text-left fas fa-exchange-alt"></i></div>
                           <div class="their-swap">
                             <div class="text-center mb-2">
                               <%= image_tag swap.listing_requested.game.cover_image, alt: "alttext", class:"card-cover-image mt-1"%>
