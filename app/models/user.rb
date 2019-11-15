@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   has_many :listings
+  has_many :wishlist_items
 
   # has_many :offered_swaps, through: :listings, foreign_key: :listing_offered, source: :swaps
   validates :first_name, :last_name, :username, :city, :email, presence: true
