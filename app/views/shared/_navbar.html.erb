@@ -1,6 +1,6 @@
   <div class="navbar navbar-expand-sm navbar-lewagon fixed-top">
-  <%= link_to games_path, class: "navbar-brand" do %>
-    <%= cl_image_tag "logo-main", id: "logo" %>
+  <%= link_to root_path, class: "nav-link" do %>
+    <div <%= "data-splitting" if params[:action] == 'home' %> class="logo-navbar">SWAPSIES</div>
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
