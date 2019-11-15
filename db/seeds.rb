@@ -27,7 +27,7 @@ def get_photo_url(id)
   if response.first['url'].nil?
     return nil
   else
-    return "http:#{response.first['url']}"
+    return "http:#{response.first['url']}".gsub("t_thumb","t_cover_big")
   end
 end
 

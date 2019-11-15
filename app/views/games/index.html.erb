@@ -1,6 +1,5 @@
 <div class="container">
   <h1 class="text-center find-games">Find Games!</h1>
-
   <!--Search-->
   <div class="search-form-control form-group">
     <%= form_tag games_path, method: :get, class: "search-form d-flex" do %>
@@ -13,13 +12,13 @@
     <% end %>
   </div>
 
-  <div class="row justify-content-around">
+  <div class="row">
       <% @games.each do |game| %>
-        <div class="card-product">
+        <div class="col-lg-3 col-md-6 col-sm-9 col-xs-12">
           <%= link_to "", game_path(game), class:"listing-card-link" %>
-          <%= image_tag game.cover_image, alt: "alttext", class:"card-cover-image"%>
-          <div class="card-product-infos">
-            <h5 class="game-title"><%= game.title %></h5>
+          <%= image_tag game.cover_image, alt: "alttext", class:"card-cover-image", size: "200x300"%>
+          <div class="card-index-infos">
+            <h5 class="game-title pt-2"><%= game.title %></h5>
               <% if game.rating.between?(90,100) %>
               <% 5.times do %>
                 <i class="fas fa-star star-yellow"></i>
@@ -53,7 +52,7 @@
             <% end %>
           <!--rating algo ends-->
             <p class="console-type"><%=game.console %> ・ <%= game.release_date %></p>
-            <p class="game-description"><%=game.description.split(",").first(2).join(", ") %></p>
+            <p><%=game.description.split(",").first(2).join(", ") %></p>
           </div>
         </div>
       <% end %>
