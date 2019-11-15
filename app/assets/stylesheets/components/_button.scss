@@ -1,21 +1,39 @@
 .button-blue {
-  width: 100px;
   height: 37px;
   border: 2px solid #65ACC9;
-  color: white;
+  color: #65ACC9;
   font-weight: bolder;
   padding: 6px;
-  transition-duration: 0.5s;
-  background-color: #65ACC9;
-  &:hover {
-    text-decoration: none;
-    background-color: #FFC057;
-    border: 1px solid #FFC057;
-    color: white;
-  }
-  &:active{
-    border-color: transparent;
-  }
+  padding-left: 12px;
+  padding-right: 12px;
+  transition: 0.3s;
+  background-color: transparent;
+}
+
+.button-blue:hover {
+  text-decoration: none;
+  background-color: rgba(192, 234, 249, 0.5);
+  color: #65ACC9;
+  border: 2px solid #65ACC9;
+}
+
+.button-orange {
+  height: 37px;
+  border: 2px solid #FFC056;
+  color: #FFC056;
+  font-weight: bolder;
+  padding: 6px;
+  padding-left: 12px;
+  padding-right: 12px;
+  transition: 0.3s;
+  background-color: transparent;
+}
+
+.button-orange:hover {
+  text-decoration: none;
+  background-color: rgba(255, 240, 214, 0.5);
+  color: #FFC056;
+  border: 2px solid #FFC056;
 }
 
 .btn-swap{

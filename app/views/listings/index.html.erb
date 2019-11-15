@@ -1,12 +1,22 @@
 <div class="container">
-  <h1><%= current_user.username %>'s Listed Games</h1>
+  <h1 class="find-games"> My Listed Games</h1>
   <br>
-  <ul>
-    <% current_user.listings.each do |listing| %>
-      <li><%= listing.game.title %> | condition: <%= listing.condition %> <%= link_to "Delete listing", listing_path(listing), class: "nav-link" %></li>
-    <% end %>
-  </ul>
 
-  <%= link_to "My Dashboard", user_path(current_user), class: "button-blue" %>
+  <div class="row justify-content-left mb-4">
+    <% current_user.listings.each do |listing| %>
+      <div class="card-product listing-card">
+        <%= image_tag listing.game.cover_image, alt: "alttext", class:"card-cover-image"%>
+        <div class="card-product-infos">
+          <h5 class="game-title"><%= listing.game.title %></h5>
+        <!--rating algo ends-->
+          <p class="console-type"><%=listing.game.console %></p>
+          <p class="game-description"><%= listing.condition %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to "Browse Games", games_path, class: "button-orange mr-3" %>
+  <%= link_to "List Another Game", new_listing_path(current_user), class: "button-blue mr-3" %>
 
 </div>

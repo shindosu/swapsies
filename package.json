@@ -6,7 +6,8 @@
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.0",
-    "select2": "^4.0.12"
+    "select2": "^4.0.12",
+    "splitting": "^1.0.6"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.9.0"

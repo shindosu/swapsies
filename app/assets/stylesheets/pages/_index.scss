@@ -7,6 +7,10 @@ body{
   overflow-x: hidden;
 }
 
+p {
+  margin: 0px;
+}
+
 .container{
   .find-games{
     font-family: 'Teko', sans-serif;
@@ -26,8 +30,6 @@ body{
   .game-description {
     font-size: 12px;
   }
-
-
 }
 
 
