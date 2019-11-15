@@ -5,16 +5,37 @@
   color: #65ACC9;
   font-weight: bolder;
   padding: 6px;
-  transition: 0.7s;
+  padding-left: 12px;
+  padding-right: 12px;
+  transition: 0.3s;
   background-color: transparent;
 }
 
 .button-blue:hover {
   text-decoration: none;
+  background-color: rgba(192, 234, 249, 0.5);
+  color: #65ACC9;
+  border: 2px solid #65ACC9;
+}
+
+.button-orange {
+  width: 100px;
+  height: 37px;
+  border: 2px solid #FFC056;
+  color: #FFC056;
+  font-weight: bolder;
+  padding: 6px;
+  padding-left: 12px;
+  padding-right: 12px;
+  transition: 0.3s;
   background-color: transparent;
-  border: 1px solid rgb(172, 220, 240);
-  color: rgb(172, 220, 240);
-  border-radius: 4px;
+}
+
+.button-orange:hover {
+  text-decoration: none;
+  background-color: rgba(255, 240, 214, 0.5);
+  color: #FFC056;
+  border: 2px solid #FFC056;
 }
 
 .btn{

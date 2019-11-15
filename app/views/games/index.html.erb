@@ -6,10 +6,10 @@
     <%= form_tag games_path, method: :get, class: "search-form d-flex" do %>
       <%= text_field_tag :query,
         params[:query],
-        class: "form-control",
+        class: "form-control mx-3",
         placeholder: "Enter the name of a game"
       %>
-      <%= submit_tag "Search", class: "btn btn-outline btn-blue", id:"search" %>
+      <%= submit_tag "Search", class: "button-blue mx-3", id:"search" %>
     <% end %>
   </div>
 
