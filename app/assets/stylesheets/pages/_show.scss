@@ -9,3 +9,16 @@
 #list-now{
   color: rgb(82, 82, 82);
 }
+
+.game-information{
+  background-color: #fff;
+}
+
+#available-listing{
+  background-color: #fff;
+}
+
+.available-listing-card{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
