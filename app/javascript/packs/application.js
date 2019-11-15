@@ -1,8 +1,11 @@
 import "bootstrap";
-import { initUpdateNavbarOnScroll } from 'components/navbar';
 import 'components/modal'
 import './styles'
+import { initUpdateNavbarOnScroll } from 'components/navbar';
+import { initNavbarLogo } from 'components/navbarLogo';
+
 initUpdateNavbarOnScroll();
+initNavbarLogo();
 
 import $ from 'jquery';
 import 'select2';
