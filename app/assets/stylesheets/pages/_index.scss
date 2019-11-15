@@ -6,6 +6,10 @@ body{
   background-color: #F7F7F7;
 }
 
+p {
+  margin: 0px;
+}
+
 .container{
   .find-games{
     font-family: 'Teko', sans-serif;
@@ -14,6 +18,9 @@ body{
   }
   h2 {
     color: #F2A900;
+  }
+  h3 {
+    letter-spacing: 1px;
   }
   h5 {
     color: #65ACC9;

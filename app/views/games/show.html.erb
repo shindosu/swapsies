@@ -40,7 +40,7 @@
               <% end %>
             <% end %> <br>
       <%= image_tag @game.cover_image, alt: "alttext", class:"avatar-title-image mt-3 mb-3"%>
-      <p class="console-type"><%= @game.console %> ・ <%= @game.release_date %></p>
+      <p class="console-type"><%= @game.console %> ・ <%= @game.release_date.strftime("%b %d, %Y") %></p>
       <p><%= @game.description %></p>
     </div>
 
@@ -69,7 +69,7 @@
       <% end %>
     </div>
     <% end %>
-    
+
     </div>
       <div class="card-product">
         <%= link_to "", new_listing_path , class: 'listing-card-link' %>
@@ -81,7 +81,7 @@
 </div>
 
 
-                     <!-- Modal 
+                     <!-- Modal
             <div class="modal fade" id="modal-<%#= listing.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">

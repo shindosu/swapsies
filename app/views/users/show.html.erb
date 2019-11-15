@@ -14,40 +14,133 @@
         </div>
     </div>
     <div class="col-9 card-swaps">
+
       <div>
-        <h1 class="text-center">Current swapsies</h1>
+        <h1 class="text-center mt-2">Current swapsies</h1>
       </div>
+
         <div class="d-flex justify-content-between">
+
             <div class="column justify-content-between">
-              <h3>Swap Requests</h3>
-              <ul class="request-card">
-                <% current_user.listings.each do |listing| %>
-                  <% listing.requested_swaps.each do |swap| %>
-                  <li>
-                  <div class="card p-2">
-                    <p class="m-0">
-                     <span class="your">Your </span> <%= swap.listing_offered.game.title %> for <span class="their"><%= swap.listing_requested.user.username %>'s </span><%= swap.listing_requested.game.title %>
-                    </p>
-                    </div></li>
-                  <% end %>
-                <% end %>
-              </ul>
-            </div>
-            <div class="column">
-              <h3>Swap Offers</h3>
+              <h3 class="text-center">Swap Offers</h3>
               <ul class="request-card">
                   <% current_user.listings.each do |listing| %>
                   <% listing.offered_swaps.each do |swap| %>
-                  <li>
-                    <div class="card p-2">
-                      <p class="m-0"> <span class="your">Your </span> <%= swap.listing_offered.game.title %> for <span class="their"><%= swap.listing_requested.user.username %>'s </span><%= swap.listing_requested.game.title %>-
-                      </p>
+                  <li style="width: 400px;">
+
+                    <div class="swap-offer-card p-3 pt-2 d-flex justify-content-between m-3">
+                      <div class="your-swap ml-2">
+                        <div class="text-center mb-2">
+                          <%= image_tag swap.listing_offered.game.cover_image, alt: "alttext", class:"card-cover-image mt-1"%>
+                        </div>
+                        <hr class="m-1">
+                        <div class="text-center">
+                          <p>
+                            <p class="your">Your Game</p>
+                            <p class="font-weight-bold">
+                              <%= swap.listing_offered.game.title %>
+                            </p>
+                            <p>
+                              Condition: <%= swap.listing_offered.condition %></p>
+                            <p>
+                              Console: <%= swap.listing_offered.game.console %>
+                            </p>
+                          </p>
+                        </div>
+                      </div class="text-center">
+
+                      <div><i class="swap-icon-offers fa-3x ml-3 mt-4 fas fa-exchange-alt"></i></div>
+
+                      <div class="their-swap">
+                        <div class="text-center mb-2">
+                          <%= image_tag swap.listing_requested.game.cover_image, alt: "alttext", class:"card-cover-image mt-1"%>
+                        </div>
+                        <hr class="m-1">
+                        <div class="text-center">
+                          <p>
+                            <p class="their">
+                              <%= swap.listing_requested.user.username %>'s Game
+                            </p>
+                            <p class="font-weight-bold">
+                              <%= swap.listing_requested.game.title %>
+                            </p>
+                            <p>
+                              Condition: <%= swap.listing_requested.condition %></p>
+                            <p>
+                              Console: <%= swap.listing_requested.game.console %>
+                            </p>
+                          </p>
+                        </div>
+                      </div>
                     </div>
+
                   </li>
                   <% end %>
                 <% end %>
-              </ul>
-            </div>
+              </ul></div>
+            <div class="column justify-content-between">
+              <h3 class="text-center">Swap Requests</h3>
+
+
+
+              <ul class="request-card">
+                  <% current_user.listings.each do |listing| %>
+                    <% listing.requested_swaps.each do |swap| %>
+                      <li style="width: 400px;">
+                        <div class="swap-offer-card p-3 pt-2 d-flex justify-content-between m-3">
+                          <div class="your-swap ml-2">
+                            <div class="text-center mb-2">
+                              <%= image_tag swap.listing_offered.game.cover_image, alt: "alttext", class:"card-cover-image mt-1"%>
+                            </div>
+                            <hr class="m-1">
+                            <div class="text-center">
+                              <p>
+                                <p class="their">
+                                  <%= swap.listing_offered.user.username %>'s Game
+                                </p>
+                                <p class="font-weight-bold">
+                                  <%= swap.listing_offered.game.title%>
+                                </p>
+                                <p>
+                                  Condition: <%= swap.listing_offered.condition %>
+                                </p>
+                                <p>
+                                  Console: <%= swap.listing_offered.game.console %>
+                                </p>
+                              </p>
+                            </div>
+                          </div class="text-center">
+
+                          <div><i class="swap-icon-requests fa-3x ml-2 mr-3 mt-4 fas fa-exchange-alt"></i></div>
+
+                          <div class="their-swap">
+                            <div class="text-center mb-2">
+                              <%= image_tag swap.listing_requested.game.cover_image, alt: "alttext", class:"card-cover-image mt-1"%>
+                            </div>
+                            <hr class="m-1">
+                            <div class="text-center">
+                              <p>
+                                <p class="your">
+                                  Your Game
+                                </p>
+                                <p class="font-weight-bold">
+                                  <%= swap.listing_requested.game.title %>
+                                </p>
+                                <p>
+                                  Condition: <%= swap.listing_requested.condition %>
+                                </p>
+                                <p>
+                                  Console: <%= swap.listing_requested.game.console %>
+                                </p>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    <% end %>
+                  <% end %>
+              </ul></div>
+
         </div>
       </div>
   </div>
