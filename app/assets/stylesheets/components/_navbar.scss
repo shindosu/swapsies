@@ -6,6 +6,9 @@
   background: white;
   background-color: transparent;
   transition: 0.5s background-color ease;
+  position: sticky;
+  top: 0;
+  z-index: 2;
   h1{
     font-family: 'Teko', sans-serif;
     color: rgb(82, 82, 82);
