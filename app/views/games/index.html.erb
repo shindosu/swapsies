@@ -20,7 +20,7 @@
           <%= image_tag game.cover_image, alt: "alttext", class:"card-cover-image"%>
           <div class="card-product-infos">
             <h5 class="game-title"><%= game.title %></h5>
-             <% if game.rating.between?(90,100) %>
+              <% if game.rating.between?(90,100) %>
               <% 5.times do %>
                 <i class="fas fa-star star-yellow"></i>
               <% end %>

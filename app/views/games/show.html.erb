@@ -49,40 +49,58 @@
 
     <div class="d-flex">
     <% @game.listings.each do |listing| %>
-      <div class="card-product col-5">
-        <%# <%= link_to "", new_listing_swap_path(listing) , class: 'listing-card-link' %>
-        <% if listing.user.photo.filename %>
-          <%= cl_image_tag listing.user.photo.url(:user_photo_main) %>
+      <% if listing.user.username == current_user.username %>
+        <%= "" %>
         <% else %>
-          <%= image_tag "https://res.cloudinary.com/dedqosv7x/image/upload/w_160,ar_1:1,c_fill,g_auto,/v1573196467/drnvl6hpigqsuxy8iqhn.jpg" %>
-        <% end %>
-        <div class="card-product-infos">
-          <h2><%= name = listing.user.username %> </h2>
-          <p class="mb-2">Condition: <%= listing.condition %> </p>
-          <button type="button" class="btn btn-primary btn-swap shadow-none" data-toggle="modal" data-target="#modal-<%= listing.id %>">
-            Swap
-          </button>
-                      <!-- Modal -->
-            <div class="modal fade" id="modal-<%= listing.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="card-product col-6">
+          <% if listing.user.photo.filename %>
+            <%= cl_image_tag listing.user.photo.url(:user_photo_main) %>
+          <% else %>
+            <%= image_tag "https://res.cloudinary.com/dedqosv7x/image/upload/w_160,ar_1:1,c_fill,g_auto,/v1573196467/drnvl6hpigqsuxy8iqhn.jpg" %>
+          <% end %>
+          <div class="card-product-infos">
+            <h2><%= name = listing.user.username %> </h2>
+            <p class="mb-2">Condition: <%= listing.condition %> </p>
+            <%# <%= link_to "", new_listing_swap_path(listing) , class: 'listing-card-link' %>
+            <button type="button" class="btn btn-primary btn-swap shadow-none" data-toggle="modal" data-target="#modal-<%= listing.id %>">
+              Swap
+            </button>
+          </div>
+      <% end %>
+    </div>
+    <% end %>
+    
+    </div>
+      <div class="card-product">
+        <%= link_to "", new_listing_path , class: 'listing-card-link' %>
+        <div class="card-product-infos text-center" id="add-new-content">
+          <i class="fas fa-plus fa-lg" id="add-plus"></i>
+          <h2 class="text-center" id="list-now"> HAVE GAME? LIST NOW </h2>
+        </div>
+    </div>
+</div>
+
+
+                     <!-- Modal 
+            <div class="modal fade" id="modal-<%#= listing.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Swap for <%= @game.title %>?</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Swap for <#%= @game.title %>?</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
                     <div class="card-product">
-                      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier" %>
+                      <%#= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier" %>
                       <div class="card-product-infos">
-                        <h2><%= name = listing.user.username %> </h2>
-                        <p><%= listing.condition %> </p>
+                        <h2><%#= name = listing.user.username %> </h2>
+                        <p><%#= listing.condition %> </p>
                       </div>
                     </div>
 
                     <i class="fas fa-exchange-alt fa-rotate-90 fa-5x" id="exchange-arrow" ></i>
-
 
                   </div>
                   <div class="modal-footer">
@@ -92,13 +110,5 @@
                 </div>
               </div>
             </div>
-            <!--end of Modal div-->
-
-        </div>
-      </div>
-    <% end %>
-    </div>
-    
-    </div>
-</div>
+            end of Modal div-->
 
