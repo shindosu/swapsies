@@ -1,6 +1,6 @@
 <div class="container">
   <div class="plain-field">
-  <h1>Create a new listing</h1>
+  <h1 class="find-games">Create a new listing</h1>
     <%= simple_form_for [@listing] do |f| %>
     <%= f.association :game, input_html: { class: "select2" } %>
       <%= f.input :condition, collection: Listing::CONDITIONS %>
