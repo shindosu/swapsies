@@ -29,6 +29,7 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "My Swaps", user_path(current_user), class: "dropdown-item nav-link"  %>
             <%= link_to "My Listed Games", user_listings_path(current_user), class: "dropdown-item nav-link"  %>
+            <%= link_to "Wishlist", user_wishlist_items_path(current_user), class: "dropdown-item nav-link"  %>
             <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item nav-link"  %>
             <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "dropdown-item nav-link" %>
           </div>

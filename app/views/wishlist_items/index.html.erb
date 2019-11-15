@@ -1,0 +1,20 @@
+<div class="container">
+  <h1 class="find-games"> My Wishlist</h1>
+  <br>
+
+  <div class="row justify-content-left mb-4">
+    <% current_user.wishlist_items.each do |wlitem| %>
+      <div class="card-product listing-card">
+        <%= image_tag wlitem.game.cover_image, alt: "alttext", class:"card-cover-image"%>
+        <div class="card-product-infos">
+          <h5 class="game-title"><%= wlitem.game.title %></h5>
+        <!--rating algo ends-->
+          <p class="console-type"><%=wlitem.game.console %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to "Browse Games", games_path, class: "button-orange mr-3" %>
+
+</div>

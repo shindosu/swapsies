@@ -1,4 +1,7 @@
-class WishlistItemController < ApplicationController
+class WishlistItemsController < ApplicationController
+  def index
+  end
+
   def new
     @wishlist_item = WishlistItem.new
   end
