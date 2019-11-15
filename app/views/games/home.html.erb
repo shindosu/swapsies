@@ -2,13 +2,13 @@
   <div class="carousel-inner ">
       <h1 class="carousel-caption carousel-btn"><%= link_to "Browse Games" , games_path , class: "btn-red"%></h1>
     <div class="carousel-item active">
-      <%= image_tag 'pokemon2', alt: "alttext", class: "d-block w-100" %>
+      <%= cl_image_tag 'pokemon2', alt: "alttext", class: "d-block w-100" %>
     </div>
     <div class="carousel-item">
-      <%= image_tag 'reddead2', alt: "alttext", class: "d-block w-100" %>
+      <%= cl_image_tag 'reddead2', alt: "alttext", class: "d-block w-100" %>
     </div>
     <div class="carousel-item">
-      <%= image_tag 'zelda.png', alt: "alttext", class: "d-block w-100" %>
+      <%= cl_image_tag 'zelda.png', alt: "alttext", class: "d-block w-100" %>
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
