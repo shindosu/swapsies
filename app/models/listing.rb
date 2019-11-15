@@ -1,5 +1,5 @@
 class Listing < ApplicationRecord
-  CONDITIONS = ['new', 'like new', 'good', 'acceptable']
+  CONDITIONS = ['New', 'Like New', 'Good', 'Acceptable']
   belongs_to :user
   belongs_to :game
   validates :user, :game, :condition, presence: true
@@ -16,6 +16,6 @@ class Listing < ApplicationRecord
   has_many :offered_swaps, foreign_key: 'listing_offered', class_name: 'Swap'
 
   def to_label
-    game.title
+    "#{game.title} - #{game.console}"
   end
 end
