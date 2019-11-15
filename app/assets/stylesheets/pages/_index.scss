@@ -13,12 +13,21 @@ body{
     letter-spacing: 2px;
     color: rgb(82, 82, 82);
   }
-  h2 {
+  .console-type {
     color: #F2A900;
+    font-size: 13px;
+    
   }
-  h5 {
+  .game-title {
     color: #65ACC9;
+    font-size: 17px;
   }
+
+  .game-description {
+    font-size: 12px;
+  }
+
+
 }
 
 
